@@ -3,7 +3,7 @@ import mongoose, { Mongoose } from "mongoose"
 
 export const connectDB = async () => {
     try {
-        const conn = await mongoose.connect("mongodb+srv://iggi984:Lozinka12345!@cluster0.io5dv.mongodb.net/products?retryWrites=true&w=majority&appName=Cluster0");
+        const conn = await mongoose.connect(process.env.MONGO_URI);
         console.log(`Mongo DB connected: ${conn.connection.host}`);
     } catch (error) {
         console.error(`Error connectiong do db: ${error.message}`);
