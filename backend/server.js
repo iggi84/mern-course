@@ -20,6 +20,15 @@ app.use(
   })
 );
 
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Allow requests from Vite dev server
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    credentials: true, // Include cookies or credentials if needed
+  })
+);
+
 app.use("/api/products", productRoutes);
 
 if(process.env.NODE_ENV === "production") {
